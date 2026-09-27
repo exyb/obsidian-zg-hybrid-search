@@ -1,0 +1,265 @@
+.zg-search-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--size-4-2);
+  gap: var(--size-4-2);
+  overflow: hidden;
+}
+
+/* Themes and Obsidian core set `display` on buttons/elements, which defeats
+   the UA stylesheet's [hidden] { display: none }. Enforce it in our scope. */
+.zg-search-view [hidden] {
+  display: none !important;
+}
+
+div.setting-item.zg-setting-hidden {
+  display: none;
+}
+
+.zg-search-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: var(--size-4-2);
+}
+
+.zg-search-row input {
+  width: 100%;
+}
+
+.zg-search-options {
+  padding: var(--size-4-2);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--background-secondary);
+}
+
+.zg-search-options summary {
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: var(--font-ui-small);
+  user-select: none;
+}
+
+.zg-search-options[open] summary {
+  margin-bottom: var(--size-4-2);
+}
+
+.zg-search-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--size-4-2);
+}
+
+.zg-control {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.zg-control label {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+}
+
+.zg-control select,
+.zg-control input {
+  width: 100%;
+}
+
+.zg-index-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--size-4-2);
+  padding: var(--size-4-2);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--background-secondary);
+}
+
+.zg-index-state {
+  flex: 1;
+  min-width: 0;
+}
+
+.zg-index-message {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  overflow-wrap: anywhere;
+}
+
+.zg-index-message.is-error,
+.zg-index-error,
+.zg-search-empty.is-error {
+  color: var(--text-error);
+}
+
+.zg-index-stats {
+  margin-top: 2px;
+  color: var(--text-faint);
+  font-size: var(--font-ui-smaller);
+  overflow-wrap: anywhere;
+}
+
+.zg-index-error {
+  margin-top: 4px;
+  font-family: var(--font-monospace);
+  font-size: var(--font-ui-smaller);
+  overflow-wrap: anywhere;
+  user-select: text;
+  white-space: pre-wrap;
+}
+
+.zg-index-error[hidden] {
+  display: none;
+}
+
+.zg-index-state progress {
+  width: 100%;
+  height: 5px;
+  margin-top: 4px;
+}
+
+.zg-index-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.zg-index-actions button {
+  padding: 2px 7px;
+  font-size: var(--font-ui-smaller);
+  height: auto;
+  min-height: 0;
+}
+
+.zg-search-summary {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  flex: none;
+}
+
+.zg-search-results {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-2);
+}
+
+.zg-search-loading,
+.zg-search-empty {
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+  padding: var(--size-4-2);
+}
+
+/* Cards are divs with role=button: themes impose fixed heights, padding and
+   display on real <button> elements, which breaks the card layout. */
+.zg-result {
+  display: block;
+  width: 100%;
+  height: auto;
+  text-align: left;
+  padding: var(--size-4-2) var(--size-4-3);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--background-primary);
+  cursor: pointer;
+}
+
+.zg-result:hover,
+.zg-result:focus-visible {
+  border-color: var(--background-modifier-border-hover);
+  background: var(--background-primary-hover);
+}
+
+.zg-result:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 1px;
+}
+
+.zg-result-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--size-4-2);
+}
+
+.zg-result-title {
+  font-weight: var(--font-medium);
+  overflow-wrap: anywhere;
+}
+
+.zg-result-heading {
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+  margin-top: 2px;
+  overflow-wrap: anywhere;
+}
+
+.zg-result-badges {
+  display: flex;
+  gap: 4px;
+  flex: none;
+}
+
+.zg-badge {
+  font-size: var(--font-ui-smallest);
+  color: var(--text-muted);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  padding: 0 4px;
+  white-space: nowrap;
+}
+
+.zg-badge.zg-badge-vector {
+  color: var(--text-accent);
+  border-color: var(--text-accent);
+}
+
+.zg-result-path {
+  color: var(--text-faint);
+  font-size: var(--font-ui-smaller);
+  margin-top: 2px;
+  overflow-wrap: anywhere;
+}
+
+.zg-result-preview {
+  margin-top: var(--size-4-1);
+  font-size: var(--font-ui-small);
+  color: var(--text-normal);
+  /* Deterministic clipping: -webkit-line-clamp is unreliable inside <button>. */
+  display: block;
+  max-height: calc(4 * 1.45em);
+  overflow: hidden;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.zg-result-preview mark {
+  background: var(--text-highlight-bg);
+}
+
+.zg-result-title mark,
+.zg-result-heading mark {
+  background: transparent;
+  color: var(--text-accent);
+  font-weight: var(--font-medium);
+}
+
+.zg-result-meta {
+  display: flex;
+  gap: var(--size-4-3);
+  margin-top: var(--size-4-1);
+  color: var(--text-faint);
+  font-size: var(--font-ui-smaller);
+}
+
+button.zg-load-more {
+  align-self: center;
+  height: auto;
+  min-height: 0;
+}

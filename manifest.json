@@ -1,0 +1,10 @@
+{
+  "id": "zg-hybrid-search",
+  "name": "ZG Hybrid Search",
+  "version": "1.0.0",
+  "minAppVersion": "1.8.0",
+  "description": "Hybrid keyword and semantic search for your vault, powered by the local zg (zvec-grep) CLI.",
+  "author": "yuanbo7",
+  "authorUrl": "https://github.com/yuanbo7",
+  "isDesktopOnly": true
+}

@@ -1,0 +1,29 @@
+{
+  "name": "obsidian-zg-hybrid-search",
+  "version": "1.0.0",
+  "description": "Local hybrid (keyword + semantic) search for Obsidian, powered by the zg (zvec-grep) CLI.",
+  "private": true,
+  "type": "module",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "node esbuild.config.mjs production",
+    "dev": "node esbuild.config.mjs",
+    "package": "npm run build && zip -X \"zg-hybrid-search-$npm_package_version.zip\" main.js manifest.json styles.css",
+    "install:vault": "node scripts/install-local.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test test/*.test.ts",
+    "smoke": "node --import tsx scripts/smoke.ts",
+    "verify": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "26.1.1",
+    "esbuild": "0.28.1",
+    "obsidian": "1.13.1",
+    "tsx": "^4.23.15",
+    "typescript": "7.0.2"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
